@@ -25,8 +25,8 @@ __global__ void sm_warps(){
 
 int main(){
     std:: cout << "Launching kernel..." << std::endl;
-    int NumThreadsPerBlock = 64; // two warps 
-    int numBlocks = 2; //two SMs 
+    dim3 NumThreadsPerBlock(2,2); // two warps 
+    dim3 numBlocks(1,2); //two SMs (numBlocks = Num SMs)
     sm_warps <<< numBlocks, NumThreadsPerBlock >>> ();
     cudaDeviceSynchronize();
 
