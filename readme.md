@@ -6,4 +6,4 @@
 |------------|------------------------|------------------------------|
 | 1 | Threads, blocks, grids     |   Lowercase to Uppercase     |
 | 2 | torch C++ ext., dim3 struct | Transpose of a matrix |
-| 3 | SMs, warp scheduling, GPU memory heirarchy | Getting SM, warp, lane IDs using PTX|
+| 3 | SMs, warp scheduling, GPU memory hierarchy | Getting SM, warp, lane IDs using PTX|
