@@ -4,4 +4,5 @@
 
 | Day       | Topics Learnt          | Exercise/Mini-Project       |
 |------------|------------------------|------------------------------|
-| 1 | Threads, blocks, grids,  warp     |   Lowercase to Uppercase     |
+| 1 | Threads, blocks, grids     |   Lowercase to Uppercase     |
+| 2 | torch C++ ext., dim3 struct | Transpose of a matrix |
