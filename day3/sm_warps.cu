@@ -8,9 +8,11 @@ __global__ void sm_warps(){
     int blockid = blockIdx.x;
     int smid, warpid, laneid;
     
+
+    // Below is inline PTX (Paralell Thread Exexcution) assembly (asm). 
     asm("mov.u32 %0, %smid;":"=r"(smid)); //%0 is the figurehead for general purpose register ("=r"). Move SMID (also a register) to r register. 
-    asm volatile("mov.u32 %0, %warpid;":"=r"(warpid));
-    asm volatile("mov.u32 %0, %laneid;":"=r"(laneid));
+    asm volatile ("mov.u32 %0, %warpid;":"=r"(warpid)); //volatile is a keyword telling the optimizer not to optimize (like cache warpid value),
+    asm volatile ("mov.u32 %0, %laneid;":"=r"(laneid)); //assuming it won't change.  Makes sure the value is always read and the line is executed.
 
     printf("SMID:%d | BlockID:%d | WarpID:%d | LaneID:%d | Thread:%d --- Namaste!\n", smid, blockid, warpid, laneid, tid);
 
