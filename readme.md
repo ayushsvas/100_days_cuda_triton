@@ -7,4 +7,4 @@
 | 1 | Threads, blocks, grids     |   Lowercase to Uppercase     |
 | 2 | torch C++ ext., dim3 struct | Transpose of a matrix |
 | 3 | SMs, warp scheduling, GPU memory hierarchy | Getting SM, warp, lane IDs using PTX|
-| 4 | Learnt about L1/L2 cache, 32 byte sectors, hit rate metric | broadcasted vector sum |
+| 4 | Learnt about L1/L2 cache, 32 byte sectors, hit rate metric | Broadcasted vector sum |
