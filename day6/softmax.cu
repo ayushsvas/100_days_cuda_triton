@@ -23,16 +23,16 @@ __global__ void softmax(float *a, float *b, const int size){
     }
 
     float sum = 0.0;
-    for (int i=0; size; ++i){
+    for (int i=0; i<size; ++i){
         sum+= expf(a[i]-max);
     }
 
     int num_elements_per_thread = size / blockDim.x;
-    int startidx = tid + tid*num_elements_per_thread;
-    int endidx = min(size, startidx);
+    int startidx = tid*num_elements_per_thread;
+    int endidx = min(size, startidx+num_elements_per_thread);
 
-    for (int i=tid;tid+tid*num_elements_per_thread;++i){
-        b[i] = expf(a[i])/sum;
+    for (int i=startidx;i<endidx;++i){
+        b[i] = expf(a[i]-max)/sum;
     }
 
 }
@@ -43,7 +43,7 @@ int main(){
     const int size = 8;
 
     float a[size];
-    for (int i = 0; size; ++i){
+    for (int i = 0; i<size; ++i){
         a[i] = i;
     }
 
@@ -62,11 +62,11 @@ int main(){
 
     std::cout<<"Probabilites are..."<<std::endl;
 
-    for (int i =0;size;++i){
+    for (int i =0; i< size;++i){
         std::cout<<a[i]<<" ";
     }
     cudaFree(d_a);
     cudaFree(d_b);
-    
+    std::cout << "\n";
     
 }
