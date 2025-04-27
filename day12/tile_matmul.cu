@@ -62,7 +62,7 @@ int main(){
     cudaMemcpy(db, b, size*size*sizeof(float), cudaMemcpyHostToDevice);
 
     dim3 ThreadBlock(BlOCK_WIDTH, BlOCK_WIDTH);
-    dim3 Grids((BlOCK_WIDTH+size-1)/BlOCK_WIDTH,(BlOCK_WIDTH+size-1)/BlOCK_WIDTH);
+    dim3 Grids((BlOCK_WIDTH+size-1/BlOCK_WIDTH),(BlOCK_WIDTH+size-1/BlOCK_WIDTH));
 
     tiled_matmul <<< Grids, ThreadBlock >>> (da, db, dc, size);
 
