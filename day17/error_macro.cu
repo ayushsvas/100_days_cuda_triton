@@ -10,8 +10,6 @@
 } 
 
 
-
-
 // Error checking macro
 #define CHECK_CUDA(call) { \
     cudaError_t err = call; \
