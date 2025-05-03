@@ -63,5 +63,10 @@ int main(){
     return 0;
 }
 
+// if one wants to define a function that is visible to both host and device, one can use
+// __device__ __host__ void fn(){}
+
+// keep ThreadBlock size as multiple of 32.
+
 
 
